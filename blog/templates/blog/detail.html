@@ -2,14 +2,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% load staticfiles %}
+      {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
       <link rel="icon" href="../../../../favicon.ico">
-    <title>Album example · Bootstrap</title>
+    <title>{{ blog.title }}</title>
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -28,43 +28,22 @@
     <div class="navbar-nav ml-auto">
       <a class="nav-link" href="https://twitter.com/pratik2810">Twitter </a>
       <a class="nav-link" href="{% static 'Screenshot (37).png' %}">Resume</a>
-      <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+      <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
     </div>
   </div>
 </nav>
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Hi, I'm Pratik.</h1>
-      <p class="lead text-muted">Hey, my name is Pratik Singhi and this i a django website.</p>
-      <p>
-        <a href="mailto:pratiksinghi75@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-      <img src="{% static 'Screenshot (41).png' %}" height="300" width="300"/>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
     <div class="container">
 
-      <div class="row">
-          {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" width="100%" height="225" src="{{ job.image.url }}" alt="pot"/>
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-      </div>
-    </div>
-  </div>
+            <h1 class="text-center pt-3">{{ blog.title }}</h1>
+        <p class="text-center">{{ blog.pub_date }}</p>
 
+            <img class="img-fluid" src="{{ blog.image.url }}" />
+        <br/>
+        <p>{{ blog.body }}</p>
+    </div>
 </main>
 
 <footer class="text-muted">
